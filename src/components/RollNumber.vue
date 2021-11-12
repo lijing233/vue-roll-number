@@ -91,10 +91,10 @@ export default {
       const transitionVal = item.noTransition
         ? ""
         : `transform ${this.dur / 1000}s ${this.timingFunc}`;
-      // console.log({
-      //   transition: transitionVal,
-      //   transform: translateVal,
-      // });
+      console.log({
+        transition: transitionVal,
+        transform: translateVal,
+      });
       return {
         transition: transitionVal,
         transform: translateVal,
@@ -104,9 +104,17 @@ export default {
       // 初始化list
       this.initDigitList();
       // 开始动画
-      this.$nextTick(() => {
+      const now = new Date().getTime();
+      console.log(this.$nextTick);
+      // this.$nextTick(() => {
+      //   console.log("nextTickTime", new Date().getTime() - now);
+      // this.handleNumberRoll();
+      // });
+
+      setTimeout(() => {
+        console.log("stoTime", new Date().getTime() - now);
         this.handleNumberRoll();
-      });
+      }, 50);
     },
     initDigitList() {
       this.digits = `${this.rollNumber}`;
