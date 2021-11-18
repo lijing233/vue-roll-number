@@ -105,13 +105,18 @@ export default {
     beginRoll() {
       // 初始化list
       this.initDigitList();
+      console.log(this.showDigitList);
       // 开始动画
       const now = new Date().getTime();
-      console.log(this.$nextTick);
+      // console.log(this.$nextTick);
       // this.$nextTick(() => {
       //   console.log("nextTickTime", new Date().getTime() - now);
       // this.handleNumberRoll();
       // });
+
+      if (!this.showDigitList || this.showDigitList.length == 0) {
+        return;
+      }
 
       setTimeout(() => {
         console.log("stoTime", new Date().getTime() - now);
