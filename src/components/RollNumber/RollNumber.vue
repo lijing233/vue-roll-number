@@ -31,7 +31,7 @@ export default {
     },
     dur: {
       type: Number,
-      default: 1000,
+      default: 1500,
     },
     timingFunc: {
       type: String,
@@ -74,7 +74,9 @@ export default {
   mounted() {
     this.initWapperHeight();
     // 数字滚动
-    this.handleNumberRoll();
+    if (this.rollNumber != "0") {
+      this.handleNumberRoll();
+    }
   },
   methods: {
     // 初始化容器高度
@@ -170,9 +172,12 @@ export default {
           const itemEl = wapperEl.querySelector(
             `.v-roll-item:nth-child(${index + 1}) .v-roll-value`
           );
+
+          // itemEl.classList.add("fliter-num");
           // console.log("itemEl... :>> ", itemEl);
           const transitionDone = () => {
             console.log("transitionend");
+            // itemEl.classList.remove("fliter-num");
             // console.log("itemEl", itemEl);
             // 重置dom偏移
             // console.log(this.showDigitList[index].offset);
@@ -245,4 +250,8 @@ export default {
   /* flex-grow: 1; */
   overflow: hidden;
 }
+
+/* .fliter-num {
+  filter: blur(1px);
+} */
 </style>

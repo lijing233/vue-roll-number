@@ -1,27 +1,31 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" @click="count" />
+    <!-- <img alt="Vue logo" src="./assets/logo.png" @click="count" /> -->
     <div class="show-number">
-      <RollNumber :rollNumber="rollNumber2"></RollNumber>
+      <RollNumber :rollNumber="rollNumber"></RollNumber>
+    </div>
+    <div class="show-number">
+      <ScrollNumber></ScrollNumber>
     </div>
     <div>
       <input type="text" v-model="inpValue" />
-      <button @click="rollNumber2 = inpValue">click</button>
+      <button @click="rollNumber = inpValue">click</button>
     </div>
   </div>
 </template>
 
 <script>
-import RollNumber from "@/components/RollNumber.vue";
+import RollNumber from "@/components/RollNumber/RollNumber.vue";
+import ScrollNumber from "@/components/ScrollNumber/ScrollNumber.vue";
 export default {
   components: {
     RollNumber,
+    ScrollNumber,
   },
   name: "App",
   data() {
     return {
       rollNumber: "6",
-      rollNumber2: "0",
       inpValue: "",
     };
   },
